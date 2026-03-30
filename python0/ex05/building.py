@@ -48,7 +48,10 @@ def building(text: str) -> None:
 
 
 def main() -> None:
-    building(get_arg())
+    try:
+        building(get_arg())
+    except AssertionError as e:
+        print(f"{type(e).__name__}: {e}")
 
 
 if __name__ == "__main__":
