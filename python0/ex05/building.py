@@ -48,6 +48,16 @@ def building(text: str) -> None:
 
 
 def main() -> None:
+    """
+    Main function
+    Tries to execute building with get_arg
+    Catches AssertionError from get_arg
+
+    Args:
+        None
+    Returns:
+        None
+    """
     try:
         building(get_arg())
     except AssertionError as e:
