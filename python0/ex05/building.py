@@ -5,7 +5,8 @@ def get_arg() -> str:
     """
     Fetches the args given in the command line.
 
-    Args: None
+    Args:
+        None
 
     Returns:
         the 1st positional argument,
