@@ -27,7 +27,8 @@ def ft_tqdm(lst: range) -> None:
         "intervals": intervals,
     }
     for iters in lst:
-        progress_bar["progress"] = (iters + 1) * 100 / progress_bar["intervals"]
+        intervals = progress_bar["intervals"]
+        progress_bar["progress"] = (iters + 1) * terminal_size / intervals
         bar = f"Loading: {iters + 1} / {progress_bar['intervals']} "
         bar += f"{update(progress_bar, iters)}"
         bar += f"{progress_bar['progress']}% Done"
