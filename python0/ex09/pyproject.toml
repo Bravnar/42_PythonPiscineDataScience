@@ -1,0 +1,17 @@
+[project]
+name = "ft_package_smuravye"
+version = "0.0.1"
+authors = [{ name = "Bravnar", email = "brav@ik.me" }]
+description = "Python package for the Python piscine at 42"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["flake8>=7.3.0"]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/Bravnar/42_PythonPiscineDataScience"
+
+[build-system]
+requires = ["uv_build >= 0.10.10, <0.11.0"]
+build-backend = "uv_build"

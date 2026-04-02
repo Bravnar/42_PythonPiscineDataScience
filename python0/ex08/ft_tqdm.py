@@ -1,41 +1,54 @@
-from os import get_terminal_size
 import time
+import sys
+from tqdm import tqdm
 
 
-def update(progress_bar, iters):
-    intervals = progress_bar["intervals"]
-    t_size = progress_bar["terminal_size"]
-    bodies = int((iters + 1) / intervals * t_size)
-    ret = progress_bar["ends"]
-    ret += progress_bar["body"] * bodies
-    ret += progress_bar["pointer"]
-    ret += " " * (progress_bar["terminal_size"] - bodies + 1)
-    ret += progress_bar["ends"]
-    return ret
+def ft_tqdm(lst: range):
+    """
+    Function that wraps a range and yields a progress bar
+    Works similarly to tqdm but with less bizzaze
+
+    Args:
+        lst (range): An iterable object
+        to be wrapped by the progress bar
+
+    Yields:
+        any: The items from the orginal iterable 'lst'
+    """
+    total = len(lst)
+    line_size = 50
+    for i, item in enumerate(lst):
+        progress = i + 1
+        percent = (progress / total) * 100
+        filled_length = int(line_size * progress // total)
+        bar = "=" * (filled_length - 1) + ">" if filled_length > 0 else ""
+        space = " " * (line_size - len(bar))
+        out = f"\rProgress: |{bar}{space}| {percent:.1f}% [{progress}/{total}]"
+
+        sys.stdout.write(out)
+        sys.stdout.flush()
+
+        yield item
 
 
-def ft_tqdm(lst: range) -> None:
-    terminal_size = get_terminal_size().columns - 100
-    intervals = len(lst)
-    progress_bar = {
-        "terminal_size": terminal_size,
-        "ends": "|",
-        "body": "=",
-        "pointer": ">",
-        "bucket": terminal_size // intervals,
-        "progress": 0,
-        "intervals": intervals,
-    }
-    for iters in lst:
-        intervals = progress_bar["intervals"]
-        progress_bar["progress"] = (iters + 1) * terminal_size / intervals
-        bar = f"Loading: {iters + 1} / {progress_bar['intervals']} "
-        bar += f"{update(progress_bar, iters)}"
-        bar += f"{progress_bar['progress']}% Done"
-        print(bar, end="\r")
-        time.sleep(0.1)
+def main() -> None:
+    """
+    Main entry function that compares ft_tqdm
+    with tqdm
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
+    for elem in ft_tqdm(range(333)):
+        time.sleep(0.005)
+    print()
+    for elem in tqdm(range(333)):
+        time.sleep(0.005)
+    print()
 
 
 if __name__ == "__main__":
-    ft_tqdm(range(100))
-    # print(tqdm().__doc__)
+    main()
