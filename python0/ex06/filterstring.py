@@ -41,7 +41,7 @@ def filterstring(S: str, N: int):
     Return:
         List of filtered items from the string (list[str])
     """
-    return ft_filter(lambda x: len(x) > N, S)
+    return ft_filter(lambda x: len(x) > N, S.split())
 
 
 def main() -> None:
@@ -57,7 +57,11 @@ def main() -> None:
     """
     try:
         s, n = get_args()
+        print("My ft_filter(): ")
         print(filterstring(s, n))
+        print()
+        print("Real filter(): ")
+        print(list(filter(lambda x: len(x) > n, s.split())))
     except AssertionError as e:
         print(f"{type(e).__name__}: {e}")
 

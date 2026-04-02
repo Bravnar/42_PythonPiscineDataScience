@@ -12,7 +12,7 @@ def ft_filter(function, iterable):
     """
     if iterable is None or function is None:
         return None
-    return [x for x in iterable.split() if function(x)]
+    return [x for x in iterable if function(x)]
 
 
 if __name__ == "__main__":
