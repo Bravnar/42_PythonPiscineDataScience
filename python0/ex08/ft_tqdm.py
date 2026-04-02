@@ -1,3 +1,4 @@
+from os import get_terminal_size
 import time
 import sys
 from tqdm import tqdm
@@ -16,14 +17,14 @@ def ft_tqdm(lst: range):
         any: The items from the orginal iterable 'lst'
     """
     total = len(lst)
-    line_size = 50
+    line_size = get_terminal_size().columns - 40
     for i, item in enumerate(lst):
         progress = i + 1
         percent = (progress / total) * 100
         filled_length = int(line_size * progress // total)
         bar = "=" * (filled_length - 1) + ">" if filled_length > 0 else ""
         space = " " * (line_size - len(bar))
-        out = f"\rProgress: |{bar}{space}| {percent:.1f}% [{progress}/{total}]"
+        out = f"\r{percent:.0f}%|{bar}{space}| [{progress}/{total}]"
 
         sys.stdout.write(out)
         sys.stdout.flush()
