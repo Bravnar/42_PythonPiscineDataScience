@@ -4,11 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "flake8>=7.3.0",
-    "ft-package-smuravye",
-    "tqdm>=4.67.3",
-]
+dependencies = ["flake8>=7.3.0", "ft-package-smuravye", "tqdm>=4.67.3"]
+
+[tool.uv.workspace]
+members = ["python0/ex09"]
 
 [tool.uv.sources]
-ft-package-smuravye = { path = "python0/ex09/dist/ft_package_smuravye-0.0.1.tar.gz" }
+ft-package-smuravye = { workspace = true }

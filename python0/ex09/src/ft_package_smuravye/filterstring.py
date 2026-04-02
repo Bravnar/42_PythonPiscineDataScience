@@ -1,6 +1,6 @@
 import sys
 from string import punctuation
-from ft_filter import ft_filter
+from ft_package_smuravye.ft_filter import ft_filter
 
 
 def get_args() -> tuple[str, int]:

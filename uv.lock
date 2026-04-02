@@ -2,6 +2,12 @@ version = 1
 revision = 3
 requires-python = ">=3.13"
 
+[manifest]
+members = [
+    "ft-package-smuravye",
+    "pythonpiscine42",
+]
+
 [[package]]
 name = "colorama"
 version = "0.4.6"
@@ -28,11 +34,10 @@ wheels = [
 [[package]]
 name = "ft-package-smuravye"
 version = "0.0.1"
-source = { path = "python0/ex09/dist/ft_package_smuravye-0.0.1.tar.gz" }
+source = { editable = "python0/ex09" }
 dependencies = [
     { name = "flake8" },
 ]
-sdist = { hash = "sha256:3c9930d0517444109efba23cca3dec972f84cba3e897554d60764448cc2874ad" }
 
 [package.metadata]
 requires-dist = [{ name = "flake8", specifier = ">=7.3.0" }]
@@ -77,7 +82,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "flake8", specifier = ">=7.3.0" },
-    { name = "ft-package-smuravye", path = "python0/ex09/dist/ft_package_smuravye-0.0.1.tar.gz" },
+    { name = "ft-package-smuravye", editable = "python0/ex09" },
     { name = "tqdm", specifier = ">=4.67.3" },
 ]
 
