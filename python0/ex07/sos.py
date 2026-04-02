@@ -76,8 +76,8 @@ def get_arg() -> str:
     args = sys.argv
     if len(args) != 2:
         raise AssertionError("bad arguments.")
-    ok_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-    if not all(x for x in args[1] if x.upper() in ok_chars):
+    ok_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "
+    if not all(x.upper() in ok_chars for x in args[1]):
         raise AssertionError("invalid characters in string.")
     return args[1]
 
