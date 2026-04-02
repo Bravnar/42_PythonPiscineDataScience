@@ -26,6 +26,18 @@ wheels = [
 ]
 
 [[package]]
+name = "ft-package-smuravye"
+version = "0.0.1"
+source = { path = "python0/ex09/dist/ft_package_smuravye-0.0.1.tar.gz" }
+dependencies = [
+    { name = "flake8" },
+]
+sdist = { hash = "sha256:3c9930d0517444109efba23cca3dec972f84cba3e897554d60764448cc2874ad" }
+
+[package.metadata]
+requires-dist = [{ name = "flake8", specifier = ">=7.3.0" }]
+
+[[package]]
 name = "mccabe"
 version = "0.7.0"
 source = { registry = "https://pypi.org/simple" }
@@ -58,12 +70,14 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "flake8" },
+    { name = "ft-package-smuravye" },
     { name = "tqdm" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "flake8", specifier = ">=7.3.0" },
+    { name = "ft-package-smuravye", path = "python0/ex09/dist/ft_package_smuravye-0.0.1.tar.gz" },
     { name = "tqdm", specifier = ">=4.67.3" },
 ]
 

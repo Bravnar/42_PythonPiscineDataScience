@@ -6,5 +6,9 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "flake8>=7.3.0",
+    "ft-package-smuravye",
     "tqdm>=4.67.3",
 ]
+
+[tool.uv.sources]
+ft-package-smuravye = { path = "python0/ex09/dist/ft_package_smuravye-0.0.1.tar.gz" }
