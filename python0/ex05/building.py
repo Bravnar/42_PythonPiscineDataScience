@@ -11,10 +11,15 @@ def get_arg() -> str:
     Returns:
         the 1st positional argument,
         raises AssertionError if more than 2 (incl .py)
+        handles EOF gracefully
         requests a user input if no arguments are given
     """
     if len(sys.argv) == 1:
-        return input("Enter a string:\n")
+        try:
+            return input("What is the text to count?\n")
+        except EOFError:
+            print("Exiting...")
+            exit(0)
     if len(sys.argv) > 2:
         raise AssertionError("more than one argument is provided.")
     return sys.argv[1]
@@ -62,6 +67,8 @@ def main() -> None:
         building(get_arg())
     except AssertionError as e:
         print(f"{type(e).__name__}: {e}")
+    except KeyboardInterrupt:
+        print("Exiting...")
 
 
 if __name__ == "__main__":
